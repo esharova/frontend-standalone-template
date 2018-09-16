@@ -839,9 +839,9 @@
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-2.0.0.tgz#5a7306e367c539b9f6543499de8dd519fac37a8b"
 
-"@types/next@^6.0.4":
-  version "6.0.4"
-  resolved "https://registry.yarnpkg.com/@types/next/-/next-6.0.4.tgz#37c01ce5675d77c3f1154ff22357e4a80cc91066"
+"@types/next@^6.1.5":
+  version "6.1.5"
+  resolved "https://registry.yarnpkg.com/@types/next/-/next-6.1.5.tgz#5ead3d87a48061817a4ca2b58c202fe0e09bc9c5"
   dependencies:
     "@types/node" "*"
     "@types/node-fetch" "*"
@@ -3023,10 +3023,6 @@ expect@^23.3.0:
 express-serve-static-core@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/express-serve-static-core/-/express-serve-static-core-0.1.1.tgz#222358112a79bc9fbe00838232e8cd2e3132ef37"
-
-express-useragent@^1.0.12:
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/express-useragent/-/express-useragent-1.0.12.tgz#5bae0109a925ec9b35417f31a4e8ad13f191253a"
 
 express@^4.16.2, express@^4.16.3:
   version "4.16.3"

@@ -36,7 +36,6 @@ export default (WrappedComponent: Component<IThemedAppProps>) => {
     return class AppWithRedux extends App {
 
         private readonly reduxStore: Store;
-        private readonly agent: ExpressUseragent.UserAgent;
 
         public static async getInitialProps(appContext: IDocumentContext) {
             const applicationState: IApplicationState = {};
@@ -53,20 +52,17 @@ export default (WrappedComponent: Component<IThemedAppProps>) => {
             return {
                 ...appProps,
                 initialReduxState: reduxStore.getState(),
-                agent: !!appContext.ctx.req ? appContext.ctx.req.useragent : {},
             };
         }
 
         public constructor(props) {
             super(props);
             this.reduxStore = getOrCreateStore(props.initialReduxState);
-            this.agent = props.agent;
         }
 
         public render() {
             return React.createElement(WrappedComponent, {
                 ...this.props,
-                agent: this.agent,
                 reduxStore: this.reduxStore,
                 pageContext: getPageContext(),
             });

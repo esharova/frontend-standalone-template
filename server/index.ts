@@ -2,7 +2,6 @@
 import { parse } from 'url';
 import * as next from 'next';
 import * as express from 'express';
-import * as useragent from 'express-useragent';
 import * as cookieParser from 'cookie-parser';
 import { NConfConfigurator } from './infra/NConfConfigurator';
 import * as bodyParser from 'body-parser';
@@ -25,7 +24,6 @@ configurator.load()
         app.prepare()
             .then(() => {
                 server.use(cookieParser());
-                server.use(useragent.express());
                 server.use(bodyParser.json());
                 server.get('*', (req, res) => {
                     const parsedUrl = parse(req.url, true);
