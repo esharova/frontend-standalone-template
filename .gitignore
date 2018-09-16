@@ -1,0 +1,9 @@
+.idea/
+*.log
+
+.next/
+node_modules/
+coverage/
+bundles/*
+target/*
+dist

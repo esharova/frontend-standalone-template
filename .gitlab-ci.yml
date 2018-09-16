@@ -1,0 +1,67 @@
+variables:
+  DOCKER_DRIVER: overlay
+  DEFAULT_BUILD_IMAGE: $DOCKER_REGISTRY_PREFIX/docker:10.4.1-build-node-1.0.358
+  DEPLOY_TOOLS_IMAGE: $DOCKER_REGISTRY_PREFIX/deploy.sh:3.1
+  GIT_STRATEGY: clone
+
+stages:
+- build
+- publish
+
+image: $DEFAULT_BUILD_IMAGE
+
+.only-pull-caches: &only_push_cache
+  cache:
+    key: "$CI_PROJECT_ID"
+    policy: push
+    paths:
+    - .yarn
+
+.no-caches: &no_cache
+  cache: {}
+
+before_script:
+- |
+  echo -e $FILE_NPMRC_CONTENT | sed 's/\ /\
+  /g'> .npmrc
+
+test:
+  only:
+  - branches
+  <<: *no_cache
+  stage: build
+  script:
+  - yarn install --ignore-engines --pure-lockfile
+  - yarn test
+
+build:
+  only:
+  - master
+  <<: *no_cache
+  stage: build
+  script: /bin/bash build-dist.sh
+  artifacts:
+    paths:
+    - dist/dist.zip
+    expire_in: 20m
+
+publish:
+  <<: *no_cache
+  only:
+  - master
+  stage: publish
+  image: $DEPLOY_TOOLS_IMAGE
+  script:
+  - /bin/bash /root/scripts/begin-bump-version.sh
+  - ./mvnw deploy:deploy-file
+    --settings /root/.m2/settings.xml
+    -Dmaven.repo.local=./.m2/repository
+    -Pcian-finance
+    -Durl=$NEXUS_URL/repository/maven-releases/
+    -DrepositoryId=nexus-release
+    -Dfile=dist/dist.zip
+    -DpomFile=pom.xml
+    -Dpackaging=zip
+    -Dclassifier=node-app
+  - /bin/bash /root/scripts/update-manifest.sh
+  - /bin/bash /root/scripts/finish-bump-version.sh

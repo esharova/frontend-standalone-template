@@ -1,0 +1,14 @@
+{
+  "auth": {
+    "userIdHeaderName": "x-real-userid",
+    "userIdQueryParamName": "user_id"
+  },
+  "api": {
+    "headerURL": "http://master.frontend-header.dev3.cian.ru",
+    "footerURL": "http://master.frontend-footer.dev3.cian.ru"
+  },
+  "override_this": {
+    "first": "overridden-by-development",
+    "second": "and add"
+  }
+}

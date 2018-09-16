@@ -1,0 +1,14 @@
+{
+  "app": {
+    "id": "template-web-ui"
+  },
+  "auth": {
+    "userIdHeaderName": "x-real-userid",
+    "defaultRedirectUrl": "https://www.cian.ru/authenticate/?back_url=https%3A%2F%2Fanketa-tinkoff.fin.cian.ru"
+  },
+
+  "override_this": {
+    "first": "0"
+  },
+  "TESTX":"OVERRIDETHIS"
+}

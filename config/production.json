@@ -1,0 +1,12 @@
+{
+  "auth": {
+    "userIdHeaderName": "x-real-userid"
+  },
+  "api": {
+    "headerURL": "http://frontend-header.micro.cian.tech",
+    "footerURL": "http://frontend-footer.micro.cian.tech"
+  },
+  "override_this": {
+    "first": "overridden-by-production"
+  }
+}

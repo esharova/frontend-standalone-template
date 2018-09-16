@@ -1,0 +1,25 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": false,
+    "jsx": "react",
+    "allowJs": true,
+    "outDir": ".next/production-server/",
+    "types": ["node"]
+  },
+  "include": [
+    "server/**/*.ts",
+    "server/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "pages"
+  ]
+}

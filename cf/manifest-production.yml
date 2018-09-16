@@ -1,0 +1,17 @@
+---
+applications:
+- name: override-this-name-automatic
+  host: app
+  buildpack: nodejs_buildpack
+  command: NODE_ENV=production node app/production-server/server/index.js
+  path: ../dist/dist.zip
+  env:
+    ISOLATED_ENVIRONMENT: true
+    CURRENT_DIR_PATH: .
+    NODE_PATH: lib
+    NEXT_WORKDIR: app
+    NODE_ENV: production
+    api_applicationBackendEndpoint: https://application-back.fin.cian.ru
+    api_profileApiBaseUrl: http://profileapi.cian.ru/
+    api_profileApiXkey: E34C92B0-541B-4846-B05B-22E82368648B
+    auth_defaultRedirectUrl: https://www.cian.ru/authenticate/?back_url=https%3A%2F%2Fapp.fin.cian.ru
