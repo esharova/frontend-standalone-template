@@ -9,7 +9,6 @@ interface IErrorProps extends WithStyles<typeof styles> {
     errorDescription?: string;
     allowRetry?: boolean;
     retryLocation?: string;
-    isFireAnketaReadyNeeded?: boolean;
     actions?: ActionCreatorsMapObject;
 }
 

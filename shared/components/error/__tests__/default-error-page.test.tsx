@@ -35,39 +35,4 @@ describe('default error page', () => {
         const wrapper = mount(<DefaultErrorPage {...props}/>);
         expect(wrapper.find(Button)).toHaveLength(0);
     });
-
-    it('should route to location if isFireAnketaReady false', () => {
-        const REDIRECT_URI = 'https://google.com';
-        const props = {
-            allowRetry : true,
-            isFireAnketaReadyNeeded: false,
-            retryLocation: REDIRECT_URI,
-        };
-        const redirect = jest.fn();
-        Router.push = redirect;
-        const wrapper = mount(<DefaultErrorPage {...props}/>);
-        const button = wrapper.find(Button);
-        expect(button.text()).toEqual('Попробовать ещё раз');
-        button.simulate('click');
-        expect(redirect).toHaveBeenCalledWith(REDIRECT_URI);
-
-    });
-
-    it('should call handler if isFireAnketaReady true', () => {
-        const handler = jest.fn();
-        handler.mockImplementation(() => new Promise(() => {}));
-        const props = {
-            allowRetry : true,
-            isFireAnketaReadyNeeded: true,
-            actions: {
-                fireAnketaReady: handler,
-            },
-        };
-        const wrapper = mount(<DefaultErrorPage {...props}/>);
-        const button = wrapper.find(Button);
-        expect(button.text()).toEqual('Повторить запрос решения');
-        button.simulate('click');
-        expect(handler).toHaveBeenCalledTimes(1);
-
-    });
 });
