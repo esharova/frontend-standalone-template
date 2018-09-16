@@ -20,11 +20,6 @@ image: $DEFAULT_BUILD_IMAGE
 .no-caches: &no_cache
   cache: {}
 
-before_script:
-- |
-  echo -e $FILE_NPMRC_CONTENT | sed 's/\ /\
-  /g'> .npmrc
-
 test:
   only:
   - branches

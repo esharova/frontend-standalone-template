@@ -10,7 +10,4 @@ applications:
     NODE_PATH: lib
     NEXT_WORKDIR: app
     NODE_ENV: production
-    api_profileApiBaseUrl: http://master.profileapi.dev3.cian.ru/
-    api_profileApiXkey: 87C8573A-BD08-4A54-BF33-DBBD2AF78551
-    api_applicationBackendEndpoint: https://application-back-e2e.cloud.fin.cian.ru
 
