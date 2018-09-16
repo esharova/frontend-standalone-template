@@ -5,15 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.cian.finance</groupId>
-<<<<<<< HEAD
-    <artifactId>tyrion-form</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <name>tyrion-form</name>
-    <description>Leadgen short anketa UI</description>
-=======
-    <artifactId>lida-mortgage-form</artifactId>
-    <version>1.13-SNAPSHOT</version>
-    <name>lida-mortgage-form</name>
-    <description>Leadgen anketa UI</description>
->>>>>>> 23f7b115d021c169f59145fc8cfa50f6801f700a
+    <artifactId>frontend-standalone-template</artifactId>
+    <version>1.0</version>
+    <name>frontend-standalone-template</name>
+    <description>frontend-standalone-template UI</description>
 </project>
