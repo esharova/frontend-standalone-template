@@ -12,7 +12,7 @@ mkdir dist
 cp -rf node_modules dist/lib
 cp -rf .next/ dist/app
 cp -rf config dist/
-cp -rf static/ dist/
+
 echo '{
   "engines": {
     "node": "10.x.x",
